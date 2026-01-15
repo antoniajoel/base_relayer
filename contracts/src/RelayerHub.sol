@@ -105,7 +105,7 @@ contract RelayerHub is Ownable {
      * @param to The target contract address
      * @return canRelay Whether the transaction can be relayed
      */
-    function canRelay(address sponsor, address user, address to) external view returns (bool canRelay) {
+    function canRelay(address sponsor, address user, address to) external view returns (bool) {
         // Check sponsor exists and is active
         if (!sponsors[sponsor].active) {
             return false;

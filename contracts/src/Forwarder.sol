@@ -67,7 +67,7 @@ contract Forwarder is IForwarder, EIP712 {
         returns (bool success, bytes memory ret)
     {
         // Verify signature
-        require(verify(req, signature), "Forwarder: invalid signature");
+        require(this.verify(req, signature), "Forwarder: invalid signature");
 
         // Check nonce
         require(req.nonce == _nonces[req.from], "Forwarder: nonce mismatch");

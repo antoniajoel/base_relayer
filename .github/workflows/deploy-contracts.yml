@@ -1,0 +1,49 @@
+name: Deploy Contracts
+
+on:
+  workflow_dispatch:
+    inputs:
+      network:
+        description: 'Network to deploy to'
+        required: true
+        type: choice
+        options:
+          - base_sepolia
+          - base_mainnet
+      verify:
+        description: 'Verify contracts on Basescan'
+        required: false
+        type: boolean
+        default: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+      
+      - name: Install dependencies
+        working-directory: contracts
+        run: forge install
+      
+      - name: Deploy contracts
+        working-directory: contracts
+        env:
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          BASESCAN_API_KEY: ${{ secrets.BASESCAN_API_KEY }}
+        run: |
+          if [ "${{ inputs.network }}" == "base_sepolia" ]; then
+            forge script script/Deploy.s.sol:DeployScript \
+              --rpc-url base_sepolia \
+              --broadcast \
+              ${{ inputs.verify && '--verify' || '' }}
+          else
+            forge script script/Deploy.s.sol:DeployScript \
+              --rpc-url base_mainnet \
+              --broadcast \
+              ${{ inputs.verify && '--verify' || '' }}
+          fi
+

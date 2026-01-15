@@ -1,0 +1,54 @@
+{
+  "name": "baserelayer",
+  "version": "0.1.0",
+  "description": "Open-source transaction relayer & meta-tx infrastructure for Base",
+  "private": true,
+  "workspaces": [
+    "contracts",
+    "relayer",
+    "backend",
+    "frontend",
+    "sdk/js"
+  ],
+  "scripts": {
+    "install:all": "npm install && npm run install:contracts && npm run install:relayer && npm run install:backend && npm run install:frontend && npm run install:sdk",
+    "install:contracts": "cd contracts && forge install",
+    "install:relayer": "cd relayer && npm install",
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "install:sdk": "cd sdk/js && npm install",
+    "build": "npm run build:contracts && npm run build:relayer && npm run build:backend && npm run build:frontend && npm run build:sdk",
+    "build:contracts": "cd contracts && forge build",
+    "build:relayer": "cd relayer && npm run build",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "build:sdk": "cd sdk/js && npm run build",
+    "test": "npm run test:contracts && npm run test:relayer && npm run test:backend && npm run test:sdk",
+    "test:contracts": "cd contracts && forge test",
+    "test:relayer": "cd relayer && npm test",
+    "test:backend": "cd backend && npm test",
+    "test:sdk": "cd sdk/js && npm test",
+    "lint": "npm run lint:contracts && npm run lint:relayer && npm run lint:backend && npm run lint:frontend && npm run lint:sdk",
+    "lint:contracts": "cd contracts && forge fmt --check",
+    "lint:relayer": "cd relayer && npm run lint",
+    "lint:backend": "cd backend && npm run lint",
+    "lint:frontend": "cd frontend && npm run lint",
+    "lint:sdk": "cd sdk/js && npm run lint"
+  },
+  "keywords": [
+    "base",
+    "relayer",
+    "meta-transactions",
+    "gasless",
+    "ethereum",
+    "blockchain",
+    "infrastructure"
+  ],
+  "author": "BaseRelayer Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antoniajoel/base_relayer.git"
+  }
+}
+

@@ -21,9 +21,16 @@ BaseRelayer improves UX for Base ecosystem by enabling:
 - **Chain ID:** 8453 (Base Mainnet), 84532 (Base Sepolia)
 - **Network:** [Base](https://base.org)
 - **Explorer:** [Basescan](https://basescan.org)
-- **Documentation:** [docs/](./docs/)
-- **Frontend Playground:** (Coming soon)
-- **API:** (Coming soon)
+
+### Base Sepolia (Testnet)
+- **Forwarder:** [0x0359AF56e8B9E8f3845dDD9a785ffcdc6744f698](https://sepolia.basescan.org/address/0x0359AF56e8B9E8f3845dDD9a785ffcdc6744f698)
+- **RelayerHub:** [0xdbA826B618744d9f4f10bF70b11c3374fDd85406](https://sepolia.basescan.org/address/0xdbA826B618744d9f4f10bF70b11c3374fDd85406)
+
+### Documentation
+- **Deployed Addresses:** [DEPLOYED_ADDRESSES.md](./DEPLOYED_ADDRESSES.md)
+- **API Docs:** [docs/api.md](./docs/api.md)
+- **Integrations:** [docs/integrations.md](./docs/integrations.md)
+- **Security:** [docs/security.md](./docs/security.md)
 
 ## 🏗️ Architecture
 
